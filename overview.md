@@ -7,7 +7,7 @@ Target Market: India (Must support low-bandwidth environments and wide range of 
 
 • The Facility (Job Provider): Clinics, Hospitals, Nursing Homes needing immediate staff.
 
-• ** The Admin (You):** Managing verifications, disputes, and platform settings.
+• ** The Admin (we both + employees):** Managing verifications, disputes, and platform settings.
 
 
 2. Key Feature Requirements
