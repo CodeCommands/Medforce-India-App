@@ -21,18 +21,33 @@ A. Onboarding & Verification
         • Professionals upload Medical Council Registration & ID proofs.
 
         • Admin Panel Requirement: A workflow for the Admin to view documents and manually approve/reject a profile before they can apply for jobs.
+
 B. The "Match" (Location & Discovery)
-• Geospatial Search: Facilities post a job at a specific coordinate. Professionals only see jobs within a customizable radius (e.g., 10km, 20km).
-• Smart Filters: Matching based on Qualification (e.g., "MBBS", "BDS") and Shift Time (e.g., "Night Shift").
+
+    • Geospatial Search: Facilities post a job at a specific coordinate. Professionals only see jobs within a customizable radius (e.g., 10km, 20km).
+
+    • Smart Filters: Matching based on Qualification (e.g., "MBBS", "BDS") and Shift Time (e.g., "Night Shift").
+
 C. Job Lifecycle
-1. Post: Facility posts a shift (Date, Time, Rate, Location).
-2. Apply: Professional applies.
-3. Accept: Facility reviews the applicant's mini-profile and accepts.
-4. Live Status: On the day of the job, tracking "Check-in" and "Check-out" (optional but preferred).
+
+    1. Post: Facility posts a shift (Date, Time, Rate, Location).
+
+    2. Apply: Professional applies.
+
+    3. Accept: Facility reviews the applicant's mini-profile and accepts.
+
+    4. Live Status: On the day of the job, tracking "Check-in" and "Check-out" (optional but preferred).
+
 D. Payments (Marketplace Model)
-• Escrow/Split Payment: The Facility pays the full amount upon booking or completion.
-• Commission: The platform deducts a % fee automatically.
-• Payout: The remaining amount is transferred to the Professional's bank account/UPI.
+
+    • Escrow/Split Payment: The Facility pays the full amount upon booking or completion.
+
+    • Commission: The platform deducts a % fee automatically.
+
+    • Payout: The remaining amount is transferred to the Professional's bank account/UPI.
+
 E. Operational Constraints
-• Offline Tolerance: The app must load previously viewed data even if the internet cuts out.
-• Notification System: Critical alerts for "New Job Near You" and "Application Accepted."
+
+    • Offline Tolerance: The app must load previously viewed data even if the internet cuts out.
+
+    • Notification System: Critical alerts for "New Job Near You" and "Application Accepted."
