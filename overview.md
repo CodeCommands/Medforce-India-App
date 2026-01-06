@@ -13,10 +13,14 @@ Target Market: India (Must support low-bandwidth environments and wide range of 
 2. Key Feature Requirements
 
 A. Onboarding & Verification
-• Phone Login: Primary authentication via OTP (India standard). Google/Apple login as backup.
-• Identity Check:
-    • Professionals upload Medical Council Registration & ID proofs.
-    • Admin Panel Requirement: A workflow for the Admin to view documents and manually approve/reject a profile before they can apply for jobs.
+
+    • Phone Login: Primary authentication via OTP (India standard). Google/Apple login as backup.
+
+    • Identity Check:
+
+        • Professionals upload Medical Council Registration & ID proofs.
+
+        • Admin Panel Requirement: A workflow for the Admin to view documents and manually approve/reject a profile before they can apply for jobs.
 B. The "Match" (Location & Discovery)
 • Geospatial Search: Facilities post a job at a specific coordinate. Professionals only see jobs within a customizable radius (e.g., 10km, 20km).
 • Smart Filters: Matching based on Qualification (e.g., "MBBS", "BDS") and Shift Time (e.g., "Night Shift").
