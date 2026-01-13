@@ -1,53 +1,50 @@
-Object Name,Field Label,API Name,Data Type,Source Requirement (PDF Reference),Data Classification,Shield Encryption Type,Encryption Rationale
-Contact,First Name,FirstName,Text(40),Full Name[cite: 80],Confidential (PII),Deterministic,Allow search by name while protecting identity.
-Contact,Last Name,LastName,Text(80),Full Name[cite: 80],Confidential (PII),Deterministic,Allow search by name while protecting identity.
-Contact,Email,Email,Email,E-mail[cite: 80],Confidential (PII),Deterministic,Key identifier for uniqueness checks.
-Contact,Phone,Phone,Phone,Work Phone[cite: 80],Confidential (PII),Deterministic,Allow lookup by phone number.
-Contact,Account Name,AccountId,Lookup(Account),Current Employer Link,Internal,None,Standard lookup; encryption not recommended for Lookups unless critical.
-Identity_Document__c,Date of Birth,Date_of_Birth__c,Date,Date of Birth[cite: 80],Restricted (Sensitive PII),Deterministic,Highly sensitive PII; Deterministic allows matching for identity verification.
-Identity_Document__c,Place of Birth City,Place_of_Birth_City__c,Text(100),Place of Birth City[cite: 80],Confidential (PII),None,Usually not required to be encrypted for search; masking can be used instead.
-Identity_Document__c,Place of Birth Country,Place_of_Birth_Country__c,Picklist,Place of Birth Country[cite: 80],Confidential (PII),None,Picklists cannot be encrypted with Shield.
-Identity_Document__c,Gender,Gender__c,Picklist,Gender[cite: 80],Confidential (PII),None,Picklists cannot be encrypted with Shield.
-Identity_Document__c,Citizenship Countries,Citizenship_Countries__c,Multi-Select Picklist,Country(ies) of Citizenship[cite: 80],Confidential (PII),None,Picklists cannot be encrypted with Shield.
-Identity_Document__c,Document Type,Document_Type__c,Picklist,Passport/Visa/National ID,Internal,None,Classification logic.
-Identity_Document__c,Document Number,Document_Number__c,Text(100),Passport Number[cite: 80],Restricted (Sensitive PII),Deterministic,Critical Identifier. Must be encrypted but searchable for duplicate checks.
-Identity_Document__c,Expiration Date,Expiration_Date__c,Date,Passport Expiration Date[cite: 80],Confidential (PII),None,Date math required for validation (e.g. valid for visit duration).
-Identity_Document__c,Issuing Country,Issuing_Country__c,Picklist,Country of Issue,Confidential (PII),None,Picklists cannot be encrypted.
-Identity_Document__c,Immigration Status,Immigration_Status__c,Picklist,Immigration Status (e.g. LPR)[cite: 80],Confidential (PII),None,Regulatory status.
-Identity_Document__c,Visa Type,Visa_Type__c,Picklist,Type of Visa (e.g. J-1)[cite: 80],Confidential (PII),None,Regulatory status.
-Address_History__c,Address Type,Address_Type__c,Picklist,Permanent/Current/Mailing,Internal,None,Classification logic.
-Address_History__c,Street Address,Street_Address__c,Text Area,Street[cite: 80],Confidential (PII),Probabilistic,Address is sensitive; Probabilistic is safer if exact match search is not needed.
-Address_History__c,City,City__c,Text(100),City[cite: 80],Confidential (PII),None,Often needed for reporting/grouping.
-Address_History__c,Country,Country__c,Picklist,Country of Current Residence[cite: 80],Confidential (PII),None,Picklists cannot be encrypted.
-Address_History__c,Time at Residence,Time_at_Residence__c,Text(50),How long at current residence[cite: 80],Confidential (PII),None,Descriptive text.
-Address_History__c,Is Active,Is_Active__c,Checkbox,Current Residence Logic,Internal,None,System flag.
-Work_Experience__c,Employer Name,Employer_Name__c,Text(255),Name of Current Employer[cite: 80],Confidential (PII),Deterministic,Searchable for conflict of interest checks.
-Work_Experience__c,Job Title,Job_Title__c,Text(100),Position Title[cite: 80],Confidential (PII),None,Reporting field.
-Work_Experience__c,Description of Duties,Description_of_Duties__c,Long Text Area,Description of requester's duties[cite: 80],Confidential (PII),Probabilistic,Free text may contain sensitive info; encrypt fully.
-Work_Experience__c,Work Address,Work_Address__c,Text Area,Place of Work (Street/City)[cite: 80],Confidential (PII),Probabilistic,Protects location data.
-Work_Experience__c,Is Current Employer,Is_Current_Employer__c,Checkbox,Current vs Past logic,Internal,None,System flag.
-Resume_Profile__c,Summary,Profile_Summary__c,Long Text Area,CV Summary,Confidential (PII),Probabilistic,May contain personal details.
-Resume_Profile__c,Language Needs,Language_Interpretation_Needs__c,Text(255),Language interpretation needs[cite: 80],Internal,None,Logistics requirement.
-Education_History__c,Institution,Institution_Name__c,Text(255),College or University[cite: 85],Confidential (PII),None,Reporting field.
-Education_History__c,Degree,Degree_Earned__c,Text(100),Degrees[cite: 85],Confidential (PII),None,Reporting field.
-Education_History__c,Date Conferred,Date_Conferred__c,Date,Dates Conferred[cite: 86],Confidential (PII),None,Reporting field.
-Education_History__c,Field of Research,Field_of_Research__c,Text(255),Field of Research[cite: 86],Internal,None,Program relevance.
-Case,Subject,Subject,Text(255),Purpose of Request[cite: 80],Internal,None,System header.
-Case,Description,Description,Long Text Area,Specific activities involved[cite: 81],Confidential (PII),Probabilistic,Research details might be sensitive/proprietary.
-Case,Visit Request Number,Visitor_Request_Number__c,Auto Number,Visitor Request Number[cite: 80],Internal,None,System ID.
-Case,Start Date,Start_Date__c,Date,Desired Start Date[cite: 81],Internal,None,Logistics.
-Case,End Date,End_Date__c,Date,Desired End Date[cite: 81],Internal,None,Logistics.
-Case,Current Whereabouts,Current_Whereabouts__c,Picklist,Is visitor currently in US[cite: 81],Confidential (PII),None,Logistics.
-Case,Sponsor Name,Financial_Sponsor__c,Text(255),Name of Financial Sponsor[cite: 83],Internal,None,Financial tracking.
-Case,Cost to DOE,Cost_To_DOE__c,Currency,Cost if sponsor is other than DOE[cite: 83],Internal,None,Financial tracking.
-Case,Subject Codes,Subject_Codes__c,Multi-Select Picklist,Subject Codes[cite: 84],Internal,None,Program tracking.
-Case,Sensitive Subject,Sensitive_Subject_Designation__c,Checkbox,Sensitive Subject Designation[cite: 84],Internal,None,Security flag.
-Case,Computer Access,Computer_Access_Required__c,Checkbox,Determination of Computer Access[cite: 84],Internal,None,IT provisioning.
-Case,International Agreement,International_Agreement_Ref__c,Text(255),Specific International Agreement[cite: 81],Internal,None,Legal compliance.
-Case,Family Members,Accompanying_Family_Members__c,Long Text Area,Family members who will accompany[cite: 86],Confidential (PII),Probabilistic,Contains names/relations of non-applicants.
-Visit_Itinerary__c,Host Name,Host_Contact__c,Lookup(User),Name of Host[cite: 84],Internal,None,Internal employee.
-Visit_Itinerary__c,Host Phone,Host_Phone__c,Phone,Host's Telephone Number[cite: 84],Internal,None,Directory info.
-Visit_Itinerary__c,Location,Location__c,Lookup(Location),Name/Location/Room[cite: 84],Internal,None,Standard Location object.
-Visit_Itinerary__c,Room Number,Room_Number__c,Text(50),Room Number[cite: 84],Internal,None,Specific access.
-Facility_Access_Item__c,Item Type,Item_Type__c,Picklist,Badge/Laptop/Access,Internal,None,Resource tracking.
-Facility_Access_Item__c,Status,Status__c,Picklist,Requested/Issued,Internal,None,Resource tracking.
+Object Name,Field Label,API Name,Data Type,Source Requirement / Rationale,Data Classification,Shield Encryption Type
+Contact,First Name,FirstName,Text(40),Full Name,Confidential (PII),Deterministic
+Contact,Last Name,LastName,Text(80),Full Name,Confidential (PII),Deterministic
+Contact,Email,Email,Email,E-mail,Confidential (PII),Deterministic
+Contact,Phone,Phone,Phone,Work Phone,Confidential (PII),Deterministic
+Contact,Account Name,AccountId,Lookup(Account),Current Employer Link,Internal,None
+Identity_Document__c,Date of Birth,Date_of_Birth__c,Date,Date of Birth,Restricted (Sensitive PII),Deterministic
+Identity_Document__c,Place of Birth City,Place_of_Birth_City__c,Text(100),Place of Birth City,Confidential (PII),None
+Identity_Document__c,Place of Birth Country,Place_of_Birth_Country__c,Picklist,Place of Birth Country,Confidential (PII),None
+Identity_Document__c,Gender,Gender__c,Picklist,Gender,Confidential (PII),None
+Identity_Document__c,Citizenship Countries,Citizenship_Countries__c,Multi-Select Picklist,Country(ies) of Citizenship,Confidential (PII),None
+Identity_Document__c,Document Type,Document_Type__c,Picklist,Passport/Visa/National ID,Internal,None
+Identity_Document__c,Document Number,Document_Number__c,Text(100),Passport Number,Restricted (Sensitive PII),Deterministic
+Identity_Document__c,Expiration Date,Expiration_Date__c,Date,Passport Expiration Date,Confidential (PII),None
+Identity_Document__c,Issuing Country,Issuing_Country__c,Picklist,Country of Issue,Confidential (PII),None
+Identity_Document__c,Immigration Status,Immigration_Status__c,Picklist,Immigration Status (e.g. LPR),Confidential (PII),None
+Address_History__c,Address Type,Address_Type__c,Picklist,Permanent/Current/Mailing,Internal,None
+Address_History__c,Street Address,Street_Address__c,Text Area,Street,Confidential (PII),Probabilistic
+Address_History__c,City,City__c,Text(100),City,Confidential (PII),None
+Address_History__c,Country,Country__c,Picklist,Country of Current Residence,Confidential (PII),None
+Address_History__c,Is Active,Is_Active__c,Checkbox,Current Residence Logic,Internal,None
+Work_Experience__c,Employer Name,Employer_Name__c,Text(255),Name of Employer,Confidential (PII),Deterministic
+Work_Experience__c,Job Title,Job_Title__c,Text(100),Position Title,Confidential (PII),None
+Work_Experience__c,Description of Duties,Description_of_Duties__c,Long Text Area,Description of duties,Confidential (PII),Probabilistic
+Work_Experience__c,Is Current Employer,Is_Current_Employer__c,Checkbox,Current vs Past logic,Internal,None
+Resume_Profile__c,Summary,Profile_Summary__c,Long Text Area,CV Summary,Confidential (PII),Probabilistic
+Resume_Profile__c,Language Needs,Language_Interpretation_Needs__c,Text(255),Language interpretation needs,Internal,None
+Education_History__c,Institution,Institution_Name__c,Text(255),College or University,Confidential (PII),None
+Education_History__c,Degree,Degree_Earned__c,Text(100),Degrees,Confidential (PII),None
+Education_History__c,Date Conferred,Date_Conferred__c,Date,Dates Conferred,Confidential (PII),None
+Case,Subject,Subject,Text(255),Purpose of Request,Internal,None
+Case,Description,Description,Long Text Area,Specific activities involved,Confidential (PII),Probabilistic
+Case,Visit Request Number,Visitor_Request_Number__c,Auto Number,Visitor Request Number,Internal,None
+Case,Start Date,Start_Date__c,Date,Desired Start Date,Internal,None
+Case,End Date,End_Date__c,Date,Desired End Date,Internal,None
+Case,Current Whereabouts,Current_Whereabouts__c,Picklist,Is visitor currently in US,Confidential (PII),None
+Case,Cost to DOE,Cost_To_DOE__c,Currency,Cost if sponsor is other than DOE,Internal,None
+Case,Subject Codes,Subject_Codes__c,Multi-Select Picklist,Subject Codes,Internal,None
+Case,Sensitive Subject,Sensitive_Subject_Designation__c,Checkbox,Sensitive Subject Designation,Internal,None
+Case,Computer Access,Computer_Access_Required__c,Checkbox,Determination of Computer Access,Internal,None
+Visit_Itinerary__c,Host Name,Host_Contact__c,Lookup(User),Name of Host,Internal,None
+Visit_Itinerary__c,Location,Location__c,Lookup(Location),Name/Location/Room,Internal,None
+Visit_Itinerary__c,Room Number,Room_Number__c,Text(50),Room Number,Internal,None
+Facility_Access_Item__c,Item Type,Item_Type__c,Picklist,Badge/Laptop/Access Token,Internal,None
+Facility_Access_Item__c,Status,Status__c,Picklist,Requested/Issued,Internal,None
+Facility_Access_Item__c,Visit Itinerary,Visit_Itinerary__c,Lookup(Visit_Itinerary__c),Link to Trip Context,Internal,None
+Facility_Access_Item__c,Asset Location,Location__c,Lookup(Location),Inventory Pickup Location (Direct Link),Internal,None
+Facility_Access_Item__c,Serial Number,Serial_Number__c,Text(100),Asset Tag #,Internal,None
+Facility_Access_Item__c,Issue Date,Issue_Date__c,Date,Date item was given,Internal,None
+Facility_Access_Item__c,Return Date,Return_Date__c,Date,Date item was returned,Internal,None
